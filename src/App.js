@@ -9,7 +9,7 @@ export default function App() {
     <div className="App">
      <div className="container">
 
-     <Weather defaultCity="New York" />
+        <Weather />
 
         <footer className="github">
             <a href="github.com/Anniick-dev/weather-react-app" target="_blank"> Open-source code </a> by Annick
@@ -17,3 +17,4 @@ export default function App() {
         </div>
         </div>
   );}
+
