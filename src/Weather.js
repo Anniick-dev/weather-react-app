@@ -1,5 +1,5 @@
 
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 
@@ -15,12 +15,20 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       city: response.data.name,
       description: "it's very warm today",
-      icon: response.data.weather.icon,
+      icon: response.data.weather[0].icon,
       date: new Date (response.data.dt * 1000),
     })
 
     setReady(true);
   }
+
+  useEffect(() => {
+    let apiKey = "894a2e7aa7f46eeca5d8778f6faa5a5b";
+  let apiURL =`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiURL).then(handleResponse);
+
+  }, [props.defaultCity]);
 
   if (ready) {
     return (
@@ -50,7 +58,7 @@ export default function Weather(props) {
                 <div className="col-2">
                     <span className="date" id="date"> 
 
-                    <FormattedDate />
+                    <FormattedDate date={weatherData.date}/>
                     
                     </span>
                 </div>
@@ -163,12 +171,6 @@ export default function Weather(props) {
         </div>
     )
 } else {
-
-  let apiKey = "894a2e7aa7f46eeca5d8778f6faa5a5b";
-  let apiURL =`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-
-  axios.get(apiURL).then(handleResponse);
-
   return ("Loading...")
 }
 }
