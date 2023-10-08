@@ -1,6 +1,5 @@
 import React from "react";
 import './App.css';
-import Weather from './Weather';
 
 function App() {
   return (
@@ -51,7 +50,7 @@ function App() {
 
         <div className="row myRow">
             <div className="col-5 todayDetails">
-                <h1 className="cityName" id="city"></h1>
+                <p className="cityName" id="city"></p>
                 <div className="temperature-icon">
                     <img src="" className="main-image" alt="Clear" id="icon" />
                     <span className="tempElement" id="temperature"></span>
