@@ -2,9 +2,10 @@ import React from "react";
 import './App.css';
 
 function App() {
+    
   return (
     <div className="App">
-     <h2>Hello from Weather in New York</h2><div className="container">
+     <div className="container">
         <div className="card">
             <div className="row">
                 <div className="col-2">
