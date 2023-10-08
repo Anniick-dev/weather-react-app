@@ -1,8 +1,27 @@
 
-import React from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
-export default function Weather () {
+export default function Weather() {
+  let [ready, setReady] = useState(false);
+  let [weatherData, setWeatherData] = useState({});
+
+  function handleResponse(response) {
+    console.log(response.data);
+    setWeatherData({
+      temperature: response.data.main.temp,
+      wind: Math.round(response.data.wind.speed),
+      humidity: response.data.main.humidity,
+      city: response.data.name,
+      description: "it's very warm today",
+      icon: response.data.weather.icon,
+      date: "December 8",
+    })
+
+    setReady(true);
+  }
+
+  if (ready) {
     return (
         <div className="container">
 <div className="card">
@@ -28,7 +47,7 @@ export default function Weather () {
                     </form>
                 
                 <div className="col-2">
-                    <span className="date" id="date"> october 8 </span>
+                    <span className="date" id="date"> {weatherData.date} </span>
                 </div>
 
             </div>
@@ -37,21 +56,23 @@ export default function Weather () {
 
         <div className="row myRow">
             <div className="col-5 todayDetails">
-                <p className="cityName" id="city">Amsterdam</p>
+                <p className="cityName" id="city">{weatherData.city}</p>
                 <div className="temperature-icon">
-                    <img src="" className="main-image" alt="Clear" id="icon" />
-                    <span className="tempElement" id="temperature">20</span>
+                    <img src={weatherData.icon} className="main-image" alt={weatherData.description} id="icon" />
+                    <span className="tempElement" id="temperature">{Math.round(weatherData.temperature)}</span>
                     <span className="temperatureUnits">C</span>
                 </div>
                 <small>
-                    Humidity: <span className="hum" id="hum">80</span>%
+                    Humidity: <span className="hum" id="hum"> {weatherData.humidity}</span>
+                    <span className="windUnit">%</span>
+
                     <br />
-                    Wind: <span className="wind" id="wind">7 </span>
+                    Wind: <span className="wind" id="wind"> {weatherData.wind} </span>
                     <span className="windUnit">km/h</span>
                 </small>
             </div>
             <div className="col-6">
-                <h5 className="popup" id="description">Today's weather is warm
+                <h5 className="popup" id="description">{weatherData.description}
                 </h5>
             </div>
         </div>
@@ -136,4 +157,14 @@ export default function Weather () {
         </div>
         </div>
     )
+} else {
+
+  let apiKey = "894a2e7aa7f46eeca5d8778f6faa5a5b";
+  let city = "New York";
+  let apiURL =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiURL).then(handleResponse);
+
+  return ("Loading...")
+}
 }
