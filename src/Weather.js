@@ -4,6 +4,7 @@ import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import FormattedDate from "./FormattedDate";
 export default function Weather(props) {
+  let [city, setCity] = useState(props.defaultCity);
   let [ready, setReady] = useState(false);
   let [weatherData, setWeatherData] = useState({});
 
@@ -24,11 +25,25 @@ export default function Weather(props) {
 
   useEffect(() => {
     let apiKey = "894a2e7aa7f46eeca5d8778f6faa5a5b";
-  let apiURL =`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+  let apiURL =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiURL).then(handleResponse);
 
   }, [props.defaultCity]);
+
+  function search() {
+    
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert(city);
+    search(city);
+  }
+
+  function handleCityChange(event){
+    setCity(event.target.value);
+  }
 
   if (ready) {
     return (
@@ -43,7 +58,7 @@ export default function Weather(props) {
                     <div className="switch-text">Celsius --- Fahrenheit</div>
                 </div>
                 <div className="col-8 m-0">
-                    <form className="search-button">
+                    <form className="search-button" onSubmit={handleSubmit}>
                         <div className="input-group">
                             <input
                                 type="text"
@@ -51,7 +66,8 @@ export default function Weather(props) {
                                 className="city-input"
                                 id="city-input"
                                 autocomplete="on"
-                                autofocus="on"/>
+                                autofocus="on"
+                                onChange={handleCityChange} />
                             </div>
                     </form>
                 
@@ -72,66 +88,6 @@ export default function Weather(props) {
         </div>
         <div className="row g-0 col-12 weather-forecast" id="forecast">
 
-                       
-                        <div className="col d-flex justify-content-center">
-                        <button className="bubbles">
-                        <span className="emoji">☀️</span>
-
-                        <span className="forecastTemperature">
-                            <span id="minTemp">8 | </span>
-                            <span id="maxTemp">18</span>
-                            </span>
-
-                        </button>
-                    </div>
-
-                    <div className="col d-flex justify-content-center">
-                        <button className="bubbles">
-                        <span className="emoji">☀️</span>
-
-                        <span className="forecastTemperature">
-                            <span id="minTemp">8 | </span>
-                            <span id="maxTemp">18</span>
-                            </span>
-
-                        </button>
-                    </div>
-
-                    <div className="col d-flex justify-content-center">
-                        <button className="bubbles">
-                        <span className="emoji">☀️</span>
-
-                        <span className="forecastTemperature">
-                            <span id="minTemp">8 | </span>
-                            <span id="maxTemp">18</span>
-                            </span>
-
-                        </button>
-                    </div>
-
-                    <div className="col d-flex justify-content-center">
-                        <button className="bubbles">
-                        <span className="emoji">☀️</span>
-
-                        <span className="forecastTemperature">
-                            <span id="minTemp">8 | </span>
-                            <span id="maxTemp">18</span>
-                            </span>
-
-                        </button>
-                    </div>
-
-                    <div className="col d-flex justify-content-center">
-                        <button className="bubbles">
-                        <span className="emoji">☀️</span>
-
-                        <span className="forecastTemperature">
-                            <span id="minTemp">8 | </span>
-                            <span id="maxTemp">18</span>
-                            </span>
-
-                        </button>
-                    </div>
 
                     <div className="col d-flex justify-content-center">
                         <button className="bubbles">
