@@ -12,7 +12,7 @@ export default function FormattedDate(props) {
   ];
   let day = days[props.date.getDay()];
 
-  let dateNumber = [props.date.getDate()];
+  let dateNumber = props.date.getDate();
 
   let months = [
     "January",
