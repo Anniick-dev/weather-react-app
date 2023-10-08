@@ -55,7 +55,84 @@ export default function Weather () {
                 </h5>
             </div>
         </div>
+        <div className="row g-0 col-12 weather-forecast" id="forecast">
+
+                       
+                        <div className="col d-flex justify-content-center">
+                        <button className="bubbles">
+                        <span className="emoji">☀️</span>
+
+                        <span className="forecastTemperature">
+                            <span id="minTemp">8 | </span>
+                            <span id="maxTemp">18</span>
+                            </span>
+
+                        </button>
+                    </div>
+
+                    <div className="col d-flex justify-content-center">
+                        <button className="bubbles">
+                        <span className="emoji">☀️</span>
+
+                        <span className="forecastTemperature">
+                            <span id="minTemp">8 | </span>
+                            <span id="maxTemp">18</span>
+                            </span>
+
+                        </button>
+                    </div>
+
+                    <div className="col d-flex justify-content-center">
+                        <button className="bubbles">
+                        <span className="emoji">☀️</span>
+
+                        <span className="forecastTemperature">
+                            <span id="minTemp">8 | </span>
+                            <span id="maxTemp">18</span>
+                            </span>
+
+                        </button>
+                    </div>
+
+                    <div className="col d-flex justify-content-center">
+                        <button className="bubbles">
+                        <span className="emoji">☀️</span>
+
+                        <span className="forecastTemperature">
+                            <span id="minTemp">8 | </span>
+                            <span id="maxTemp">18</span>
+                            </span>
+
+                        </button>
+                    </div>
+
+                    <div className="col d-flex justify-content-center">
+                        <button className="bubbles">
+                        <span className="emoji">☀️</span>
+
+                        <span className="forecastTemperature">
+                            <span id="minTemp">8 | </span>
+                            <span id="maxTemp">18</span>
+                            </span>
+
+                        </button>
+                    </div>
+
+                    <div className="col d-flex justify-content-center">
+                        <button className="bubbles">
+                        <span className="emoji">☀️</span>
+
+                        <span className="forecastTemperature">
+                            <span id="minTemp">8 | </span>
+                            <span id="maxTemp">18</span>
+                            </span>
+
+                        </button>
+                    </div>
+
+                    
     </div><div className="weather-forecast" id="forecast">
+        </div>
         </div>
         </div>
     )
