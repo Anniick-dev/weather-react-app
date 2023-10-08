@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
-  const [weatherData, setWeatherData] = useState(null);
+  const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-
-  useEffect(() => {
-    search();
-  }, []);
 
   function handleResponse(response) {
     setWeatherData({
@@ -41,10 +37,7 @@ export default function Weather(props) {
     axios.get(apiURL).then(handleResponse);
   }
 
-  if (weatherData === null) {
-    return "Loading...";
-  }
-
+  if (weatherData.ready) {
   return (
     <div className="container">
       <div className="card">
@@ -73,18 +66,10 @@ export default function Weather(props) {
           </div>
           <div className="col-2">
             <span className="date" id="date">
-              {weatherData.date}
+            <WeatherInfo data={weatherData} />
             </span>
           </div>
         </div>
-      </div>
-
-      {weatherData.ready && (
-        <>
-          <WeatherInfo data={weatherData} />
-          <WeatherForecast coordinates={weatherData.coordinates} />
-        </>
-      )}
 
 <div className="row myRow">
     <div className="col-5 todayDetails">
@@ -106,22 +91,13 @@ export default function Weather(props) {
     </div>
 </div>
 <div className="row g-0 col-12 weather-forecast" id="forecast">
-
-               
-                <div className="col d-flex justify-content-center">
-                <button className="bubbles">
-                <span className="emoji">☀️</span>
-
-                <span className="forecastTemperature">
-                    <span id="minTemp">8 | </span>
-                    <span id="maxTemp">18</span>
-                    </span>
-
-                </button>        
-                </div>
+<WeatherForecast coordinates={weatherData.coordinates} />
+</div>
                 </div>
                 </div>
                
 );
+} else {
+return "Loading..."
 }
-    
+}
