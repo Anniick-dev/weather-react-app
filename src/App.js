@@ -57,7 +57,8 @@ function App() {
             </div>
         </div>
     </div><div className="weather-forecast" id="forecast">
-        </div><footer className="github">
+        </div>
+        <footer className="github">
             <a href="github.com/Anniick-dev/weather-react-app"> Open-source code </a> by Annick
         </footer>
         </div>
