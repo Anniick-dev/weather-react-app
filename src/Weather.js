@@ -37,7 +37,7 @@ export default function Weather(props) {
     axios.get(apiURL).then(handleResponse);
   }
 
-  if (weatherData.ready) {
+  
   return (
     <div className="container">
       <div className="card">
@@ -70,7 +70,4 @@ export default function Weather(props) {
       </div>
       </div>
 );
-} else {
-    search();
-return "Loading...";
-} }
+} 
