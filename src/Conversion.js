@@ -1,16 +1,35 @@
-import React, { useState }from "react";
+import React, { useState } from "react";
 
-export default function Conversion(props){
-    let [unit, setUnit] = useState("celsius");
-    if (unit===`celsius`) {
-    return (
-        <div className="Conversion">
-        <span className="tempElement" id="temperature">{Math.round(props.celsius)}</span>
-        <span className="units">C </span>
-        </div>
+export default function Conversion(props) {
+  const [unit, setUnit] = useState("celsius");
 
-    );
-} else {
-    return "F"
-}
+  function showFahrenheit(event) {
+    event.preventDefault();
+    setUnit("fahrenheit");
+  }
+
+  function showCelsius(event) {
+    event.preventDefault();
+    setUnit("celsius");
+  }
+
+  const temperature = unit === "celsius" ? props.celsius : (props.celsius * 9) / 5 + 32;
+  const unitLabel = unit === "celsius" ? "C" : "F";
+
+  return (
+    <div className="Conversion">
+      <span className="tempElement" id="temperature">
+        {Math.round(temperature)}
+      </span>
+      <span className="units">
+        <a href="/" onClick={showCelsius}>
+          C 
+        </a>{" "}
+         | {" "}
+        <a href="/" onClick={showFahrenheit}>
+           F
+        </a>
+      </span>
+    </div>
+  );
 }

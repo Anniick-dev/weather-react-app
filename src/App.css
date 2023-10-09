@@ -159,6 +159,7 @@ form.search-button input[type=text] {
 .units {
   font-size: 16px;
   display: inline-block;
+  margin: 3px;
 }
 
 #temperature {
