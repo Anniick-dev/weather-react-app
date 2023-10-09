@@ -16,7 +16,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       city: response.data.name,
       description: "it's very warm today",
-      icon: "https://openweathermap.org/img/wn/10d@2x.png",
+      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       date: new Date (response.data.dt * 1000),
     })
 
