@@ -2,15 +2,17 @@ import React from "react";
 import './App.css';
 import axios from "axios";
 
-export default function ForecastWeather (){
+export default function ForecastWeather (props){
 
     function handleResponse(response){
     console.log(response.data);
     }
 
+    console.log(props);
+
     let apiKey = "894a2e7aa7f46eeca5d8778f6faa5a5b";
-    let lat = 40.7;
-    let lon = 74;
+    let lat = props.coordinates.lat;
+    let lon = props.coordinates.lon;
     let apiURL =`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
   
     axios.get(apiURL).then(handleResponse);

@@ -20,6 +20,7 @@ export default function Weather(props) {
       description: "it's very warm today",
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       date: new Date (response.data.dt * 1000),
+      coordinates: response.data.coord,
     })
 
     setReady(true);
@@ -82,7 +83,7 @@ export default function Weather(props) {
 
         <WeatherInfo data={weatherData} />
 
-        <ForecastWeather />
+        <ForecastWeather coordinates={weatherData.coordinates}/>
 
     </div>
         </div>
