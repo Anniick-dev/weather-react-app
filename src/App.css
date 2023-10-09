@@ -201,14 +201,17 @@ form.search-button input[type=text] {
   bottom: 30px;
   margin: 10px;
   padding: 10px;
+  display: flex; /* Use flexbox to arrange items horizontally */
+  justify-content: center; /* Center items horizontally */
+  align-items: center;
 }
 
 /* Style the bubbles */
 .bubbles {
   background: #c9dcf3;
-  max-width: 90px;
+  max-width: 100px;
   aspect-ratio: 1/1;
-  height: 90px;
+  height: 100px;
   border-radius: 50%;
   position: relative;
   align-items: center;
@@ -218,7 +221,7 @@ form.search-button input[type=text] {
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 0 15px;
+  margin: 0 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   border: 1px solid #c9dcf300;
 }
@@ -235,15 +238,16 @@ form.search-button input[type=text] {
   text-align: center;
   display: block;
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .dateWeek {
   text-align: center;
-  margin-top: 10px;
-  font-size: 12px;
+  margin-top: 5px;
+  font-size: 10px;
   color: #9891a2;
 }
+
 
 /* Style the emoji */
 .emoji {
