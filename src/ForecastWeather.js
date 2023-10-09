@@ -14,7 +14,7 @@ export default function ForecastWeather (props){
         let apiURL =`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
       
         axios.get(apiURL).then((response) => {
-            setForecast(response.data.daily);
+            setForecast(response.data.daily.slice(0, 5));
             setLoaded(true);
           });
         }, [props.coordinates]);
@@ -27,7 +27,7 @@ export default function ForecastWeather (props){
                         <div key={index} className="col d-flex justify-content-center">
                           <div className="row">
                             <button className="bubbles">
-                              <span className="emoji">☀️</span>
+                            <img src={`https://openweathermap.org/img/wn/${dayData.weather[0].icon}.png`} alt="Weather Icon" />
                               <span className="forecastTemperature">
                                 <span className="minTemp" id="minTemp">
                                   {Math.round(dayData.temp.min)}
