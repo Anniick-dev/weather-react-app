@@ -3,6 +3,8 @@ import React, {useState} from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import FormattedDate from "./FormattedDate";
+import ForecastWeather from "./ForecastWeather";
+
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
   let [ready, setReady] = useState(false);
@@ -80,21 +82,7 @@ export default function Weather(props) {
 
         <WeatherInfo data={weatherData} />
 
-        </div>
-        <div className="row g-0 col-12 weather-forecast" id="forecast">
-
-
-                    <div className="col d-flex justify-content-center">
-                        <button className="bubbles">
-                        <span className="emoji">☀️</span>
-
-                        <span className="forecastTemperature">
-                            <span id="minTemp">8 | </span>
-                            <span id="maxTemp">18</span>
-                            </span>
-
-                        </button>
-                    </div>
+        <ForecastWeather />
 
                     
     </div><div className="weather-forecast" id="forecast">
