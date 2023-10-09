@@ -30,19 +30,18 @@ export default function ForecastWeather (props){
                             <img src={`https://openweathermap.org/img/wn/${dayData.weather[0].icon}.png`} alt="Weather Icon" />
                               <span className="forecastTemperature">
                                 <span className="minTemp" id="minTemp">
-                                  {Math.round(dayData.temp.min)}
+                                  {Math.round(dayData.temp.min)} 
                                 </span>{" "}
-                                |
+                                 | 
                                 <span className="maxTemp" id="maxTemp">
-                      {Math.round(dayData.temp.max)}
+                       {Math.round(dayData.temp.max)}
                     </span>
                   </span>
                 </button>
                 <span className="dayWeek">
                   {new Date(dayData.dt * 1000).toLocaleDateString("en-US", {
                     weekday: "long",
-                  })}{" "}
-                  |{" "}
+                  })}{" "} | {" "}
                   <span className="dateWeek">
                     {new Date(dayData.dt * 1000).toLocaleDateString("en-US", {
                       month: "long",

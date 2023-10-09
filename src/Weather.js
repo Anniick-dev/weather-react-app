@@ -17,7 +17,7 @@ export default function Weather(props) {
       wind: Math.round(response.data.wind.speed),
       humidity: response.data.main.humidity,
       city: response.data.name,
-      description: "it's very warm today",
+      description:`Today, it's ${response.data.weather[0].description} in ${city}. Make sure to make it a good!`,
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       date: new Date (response.data.dt * 1000),
       coordinates: response.data.coord,

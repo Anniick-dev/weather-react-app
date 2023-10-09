@@ -173,10 +173,12 @@ form.search-button input[type=text] {
 }
 #minTemp {
   color: #a9aaac;
+  padding: 2px;
 }
 
 #maxTemp {
   color: #1f1f20;
+  padding: 2px;
 }
 
 .temperature-icon {
