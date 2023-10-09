@@ -8,7 +8,7 @@ export default function ForecastWeather (props){
     let [forecast, setForecast] = useState([]);
 
     useEffect(() => {
-        let apiKey = "445905dadb3d2b0c6f1b916c9d0e3860";
+        let apiKey = "53f3bc1f5d348c44be3e3754c7185573";
         let lat = props.coordinates.lat;
         let lon = props.coordinates.lon;
         let apiURL =`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
