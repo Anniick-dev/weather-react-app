@@ -13,8 +13,7 @@ export default function Conversion(props) {
     setUnit("celsius");
   }
 
-  const temperature = unit === "celsius" ? props.celsius : (props.celsius * 9) / 5 + 32;
-  const unitLabel = unit === "celsius" ? "C" : "F";
+  let temperature = unit === "celsius" ? props.celsius : (props.celsius * 9) / 5 + 32;
 
   return (
     <div className="Conversion">
