@@ -1,5 +1,5 @@
 import React from "react";
-import FormattedDate from "./FormattedDate";
+import Conversion from "./Conversion";
 
 export default function WeatherInfo (props) {
 
@@ -8,10 +8,12 @@ export default function WeatherInfo (props) {
         <div className="row myRow">
             <div className="col-5 todayDetails">
                 <p className="cityName" id="city">{props.data.city}</p>
+
                 <div className="temperature-icon">
                     <img src={props.data.icon} className="main-image" alt={props.data.description} id="icon" />
-                    <span className="tempElement" id="temperature">{Math.round(props.data.temperature)}</span>
-                    <span className="temperatureUnits">C</span>
+
+                   <Conversion celsius={Math.round(props.data.temperature)}/>
+
                 </div>
                 <small>
                     Humidity: <span className="hum" id="hum"> {props.data.humidity}</span>
